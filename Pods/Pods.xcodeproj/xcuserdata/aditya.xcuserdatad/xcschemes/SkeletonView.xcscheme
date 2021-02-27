@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BBEBF107247738A50044AFE0"
-               BuildableName = "Yelpy.app"
-               BlueprintName = "Yelpy"
-               ReferencedContainer = "container:Yelpy.xcodeproj">
+               BlueprintIdentifier = "8CEEFD1CB630CA790F0396E2E24A4C8C"
+               BuildableName = "SkeletonView.framework"
+               BlueprintName = "SkeletonView"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,16 +40,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BBEBF107247738A50044AFE0"
-            BuildableName = "Yelpy.app"
-            BlueprintName = "Yelpy"
-            ReferencedContainer = "container:Yelpy.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,16 +47,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BBEBF107247738A50044AFE0"
-            BuildableName = "Yelpy.app"
-            BlueprintName = "Yelpy"
-            ReferencedContainer = "container:Yelpy.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
