@@ -30,7 +30,7 @@ class RestaurantsViewController: UIViewController {
         super.viewDidLoad()
         
         // ––––– Lab 4 TODO: Start animations
-        startAnimations()
+        self.startAnimations()
 
         
         // Table View
@@ -44,7 +44,10 @@ class RestaurantsViewController: UIViewController {
         getAPIData()
         
         // –––––  Lab 4: stop animations, you can add a timer to stop the animation
-        stopAnimations()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0 )
+            {
+            self.stopAnimations()
+        }
         
     }
     
