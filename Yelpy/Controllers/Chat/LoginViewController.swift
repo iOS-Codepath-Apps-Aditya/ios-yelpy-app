@@ -53,7 +53,7 @@ class LoginViewController: UIViewController {
                 else {
                     print ("User \(newUser.username!) Registered Sucessfully!")
                     // call the notification to see the login to user
-                    NotificationCenter.default.post(name: NSNotification.Name("Login"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
                     
                 }
                 
@@ -88,7 +88,7 @@ class LoginViewController: UIViewController {
                 
                 else{
                     print ("User \(username) Logged in Sucessfully!")
-                    NotificationCenter.default.post(name: NSNotification.Name("Login"), object: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
 
                 }
                 

@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // this bascecially listens for the login notification from the chat view controller and then displays it if it sees one.
         
-        NotificationCenter.default.addObserver(forName: Notification.Name("login"), object: nil, queue: OperationQueue.main){(Notification) in
+        NotificationCenter.default.addObserver(forName: Notification.Name("login"), object: nil, queue: OperationQueue.main){ (Notification) in
             print("Login notification receivied")
             self.login()
         }
@@ -36,7 +36,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         
         // Add User persistance across app restarts
-
+        if PFUser.current() != nil {
+            login()
+        }
 
         guard let _ = (scene as? UIWindowScene) else { return }
     }
@@ -45,6 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // ––––– Lab 5 TODO: LOGIN USER
     func login()
     {
+        
         // this calls the main storyboard that is defined
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "TabBar")
