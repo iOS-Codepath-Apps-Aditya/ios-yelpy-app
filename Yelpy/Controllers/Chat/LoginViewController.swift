@@ -29,26 +29,44 @@ class LoginViewController: UIViewController {
     @IBAction func onSignUp(_ sender: Any) {
         // Sign up user
         // Check text field inputs
-        if usernameAndPasswordNotEmpty() {
-            // initialize a user object
+        
+        if !usernameAndPasswordNotEmpty()
+        {
+            // initialize a user object using the pf user
             let newUser = PFUser()
             
-            // set user properties
+            // set user properties  using the text field from the UITextField
+            
             newUser.username = usernameTextField.text
             newUser.password = passwordTextField.text
             
             // call sign up function on the object
             newUser.signUpInBackground { (success: Bool, error: Error?) in
-                if let error = error {
+                if let error = error{
+                    // error handling output
                     print(error.localizedDescription)
+                    // print out the error in the console
                     self.displaySignupError(error: error)
-                } else {
-                    print("User \(newUser.username!) Registered successfully")
-                    NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
+                }
+                // if there is no error in the sign up process
+                // \ is a way to escape and add variables inside print statemenets !
+                else {
+                    print ("User \(newUser.username!) Registered Sucessfully!")
+                    // call the notification to see the login to user
+                    NotificationCenter.default.post(name: NSNotification.Name("Login"), object: nil)
                     
                 }
+                
             }
+                 
         }
+        else{
+            // this is mentioned as display empty error!
+            displayError()
+        }
+
+        
+        
         
     }
     
@@ -56,41 +74,37 @@ class LoginViewController: UIViewController {
     // ––––– LAB 5 TODO: LOGIN FUNCTIONALITY
     @IBAction func onLogin(_ sender: Any) {
         // Login user
-    
-        // Check text field inputs
-        if usernameAndPasswordNotEmpty() {
+        if !usernameAndPasswordNotEmpty()
+        {
             let username = usernameTextField.text ?? ""
             let password = passwordTextField.text ?? ""
             
             PFUser.logInWithUsername(inBackground: username, password: password) { (user: PFUser?, error: Error?) in
-                if let error = error {
-                    print("User log in failed: \(error.localizedDescription)")
+                
+                if let error = error{
+                    print("User log in failed \(error.localizedDescription)")
                     self.displayLoginError(error: error)
-                } else {
-                    print("User \(username) logged in successfully")
-                    // display view controller that needs to shown after successful login
-                    NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
-
-                    
                 }
+                
+                else{
+                    print ("User \(username) Logged in Sucessfully!")
+                    NotificationCenter.default.post(name: NSNotification.Name("Login"), object: nil)
+
+                }
+                
             }
         }
-        
+        else{
+            displayError()
+        }
     }
     
     
     
     
     /*------ Handle text field inputs  ------*/
-    
     func usernameAndPasswordNotEmpty() -> Bool {
-        // Check text field inputs
-        if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            displayError()
-            return false
-        } else {
-            return true
-        }
+        return usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty
     }
     
     /*------ Alert Controllers ------*/
